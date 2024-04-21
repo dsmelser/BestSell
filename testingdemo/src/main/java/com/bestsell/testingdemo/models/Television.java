@@ -1,7 +1,28 @@
 package com.bestsell.testingdemo.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import org.springframework.context.annotation.Primary;
+
+
+@Entity
+@Table(name = "televisions")
 public class Television {
 
+    public Television() {
+
+    }
+
+    public Television( int id, String brand, String model, String color, int year ){
+        this.id = id;
+        this.brand = brand;
+        this.model = model;
+        this.color = color;
+        this.year = year;
+    }
+
+    @Id
     private int id;
 
     private String brand;

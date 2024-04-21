@@ -1,5 +1,6 @@
 package com.bestsell.testingdemo.services;
 
+import com.bestsell.testingdemo.data.JpaTelevisionRepository;
 import com.bestsell.testingdemo.data.TelevisionRepository;
 import com.bestsell.testingdemo.models.Television;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,24 +12,34 @@ import java.util.List;
 public class TelevisionService {
 
     @Autowired
-    private TelevisionRepository televisionRepository;
+    private JpaTelevisionRepository televisionRepository;
 
     @Autowired
-    public TelevisionService(TelevisionRepository televisionRepository) {
+    public TelevisionService(JpaTelevisionRepository televisionRepository) {
         this.televisionRepository = televisionRepository;
     }
 
-    public Result AddTelevision( Television toAdd) {
+    public Result addTelevision( Television toAdd) {
+        //must have a model name
+        //must have a brand name
+        //color is optional
+        //year is optional
+
+
+
         return null;
     }
 
-    public Result RemoveTelevisionById( int tvId ){
+    public Result removeTelevisionById( int tvId ){
         return null;
     }
 
-    public List<Television> GetAllTVs(){
-        return null;
+    public List<Television> getAllTVs(){
+
+        List<Television> allTvs = televisionRepository.findAll();
+
+        //allTvs.get(0).setBrand("BAD DATA HAHAHAHA");
+
+        return allTvs;
     }
-
-
 }
